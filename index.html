@@ -1,451 +1,1006 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kriyan AI Training</title>
-    <meta
-      name="description"
-      content="AI training for JEE and competitive exam students who want to go beyond marks, beat the 40% unemployment trap, and build skills for the new AI-first world."
-    />
-    <meta name="keywords" content="AI training, JEE, competitive exams, Python, machine learning, Kriyan AI, student training, coding for students" />
-    <meta name="author" content="Kriyan AI" />
-    <meta name="theme-color" content="#050816" />
-    <link rel="canonical" href="https://kriyan.ai/" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kriyan AI Training — JEE gets you in. AI skills get you hired.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #0f1923;
+    --ink-mid: #2c3e50;
+    --ink-soft:#5a6a7a;
+    --cream:   #faf8f4;
+    --cream2:  #f3f0e9;
+    --accent:  #d4500a;
+    --accent2: #1a56db;
+    --gold:    #c8953a;
+    --white:   #ffffff;
+    --border:  #e0dbd0;
+    --r: 6px;
+  }
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Kriyan AI Training" />
-    <meta property="og:title" content="Kriyan AI Training – Don't just crack JEE. Get ready for the AI world." />
-    <meta property="og:description" content="AI training for JEE and competitive exam students. Build Python and AI skills alongside exam prep for the jobs that are actually growing." />
-    <meta property="og:url" content="https://kriyan.ai/" />
-    <meta property="og:image" content="https://kriyan.ai/icon.png" />
-    <meta property="og:locale" content="en_IN" />
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Kriyan AI Training – Don't just crack JEE. Get ready for the AI world." />
-    <meta name="twitter:description" content="AI training for JEE and competitive exam students. Build Python and AI skills alongside exam prep for the jobs that are actually growing." />
-    <meta name="twitter:image" content="https://kriyan.ai/icon.png" />
+  html { scroll-behavior: smooth; }
 
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header class="navbar">
-      <div class="container navbar__inner">
-        <div class="brand">
-          <img src="icon.png" alt="Kriyan AI" width="36" height="36" />
-          <span class="brand__text">Kriyan AI Training</span>
-        </div>
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#facts">Facts</a>
-          <a href="#curriculum">Curriculum</a>
-          <a href="#formats">Formats</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact" class="nav-links__cta">Enroll</a>
-        </nav>
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--cream);
+    text-decoration: none;
+    letter-spacing: -.5px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: #a0b0be; text-decoration: none;
+    font-size: .85rem; font-weight: 500; letter-spacing: .02em;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-cta {
+    background: var(--accent); color: var(--white) !important;
+    padding: .4rem 1.1rem; border-radius: var(--r);
+  }
+  .nav-cta:hover { background: #b84208 !important; }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 100px 5vw 80px;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 60% at 80% 30%, rgba(212,80,10,.12), transparent),
+      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(26,86,219,.1), transparent);
+    pointer-events: none;
+  }
+  .hero-grid {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 340px; gap: 60px; align-items: center;
+  }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(212,80,10,.15); border: 1px solid rgba(212,80,10,.3);
+    color: #f4a76a; font-size: .78rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: .3rem .9rem; border-radius: 999px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp .6s ease both;
+  }
+  .hero-eyebrow::before { content: '●'; font-size: .5rem; }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    font-weight: 700; line-height: 1.08;
+    letter-spacing: -.03em;
+    margin-bottom: 1.2rem;
+    animation: fadeUp .6s .1s ease both;
+  }
+  .hero h1 em {
+    font-style: italic; font-weight: 300;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300;
+    color: #a0b8cc; line-height: 1.7;
+    max-width: 540px;
+    margin-bottom: 2rem;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-sub strong { color: var(--cream); font-weight: 500; }
+
+  .hero-actions {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--white);
+    padding: .8rem 1.8rem; border-radius: var(--r);
+    font-weight: 600; font-size: .95rem;
+    text-decoration: none; transition: background .2s, transform .15s;
+    display: inline-flex; align-items: center; gap: .5rem;
+  }
+  .btn-primary:hover { background: #b84208; transform: translateY(-1px); }
+  .btn-ghost {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    color: var(--cream);
+    padding: .8rem 1.6rem; border-radius: var(--r);
+    font-weight: 400; font-size: .95rem;
+    text-decoration: none; transition: background .2s;
+  }
+  .btn-ghost:hover { background: rgba(255,255,255,.12); }
+
+  /* Instructor card inside hero */
+  .instructor-card {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 1.6rem;
+    animation: fadeUp .6s .4s ease both;
+  }
+  .instructor-avatar {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 1.6rem; color: white; font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  .instructor-card blockquote {
+    font-size: .88rem; line-height: 1.65;
+    color: #b0c4d4; font-style: italic;
+    margin-bottom: 1rem;
+  }
+  .instructor-name {
+    font-size: .8rem; font-weight: 600;
+    color: var(--cream); letter-spacing: .03em;
+  }
+  .instructor-role { font-size: .75rem; color: #7090a8; }
+
+  /* ── STAT BAR ── */
+  .stat-bar {
+    background: var(--cream2);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem 5vw;
+  }
+  .stat-bar-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; gap: 3rem; flex-wrap: wrap;
+    align-items: center; justify-content: center;
+  }
+  .stat-item { text-align: center; }
+  .stat-item .num {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--accent); line-height: 1;
+  }
+  .stat-item .label {
+    font-size: .75rem; color: var(--ink-soft);
+    font-weight: 500; letter-spacing: .03em;
+    text-transform: uppercase; margin-top: .25rem;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 90px 5vw; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .eyebrow {
+    font-size: .75rem; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: .75rem;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 600; line-height: 1.15;
+    letter-spacing: -.02em;
+    color: var(--ink); margin-bottom: .8rem;
+  }
+  .section-lead {
+    font-size: 1.05rem; color: var(--ink-soft);
+    max-width: 560px; line-height: 1.7;
+    margin-bottom: 3rem;
+  }
+
+  /* ── FOR WHO ── */
+  #about { background: var(--white); }
+  .who-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+  }
+  .who-card {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.8rem;
+    transition: box-shadow .2s, transform .2s;
+  }
+  .who-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,.08); transform: translateY(-2px); }
+  .who-icon {
+    font-size: 1.8rem; margin-bottom: .8rem;
+  }
+  .who-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem; font-weight: 600;
+    margin-bottom: .5rem; color: var(--ink);
+  }
+  .who-card p { font-size: .9rem; color: var(--ink-soft); line-height: 1.65; }
+
+  /* ── CURRICULUM ── */
+  #curriculum { background: var(--ink); color: var(--cream); }
+  #curriculum .eyebrow { color: var(--accent); }
+  #curriculum .section-title { color: var(--cream); }
+  #curriculum .section-lead { color: #7090a8; }
+
+  .module-list { display: flex; flex-direction: column; gap: 1px; }
+  .module {
+    background: rgba(255,255,255,.03);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1px;
+    transition: background .2s;
+  }
+  .module:hover { background: rgba(255,255,255,.06); }
+  .module-header {
+    display: flex; align-items: center; gap: 1.2rem;
+    padding: 1.4rem 1.8rem;
+    cursor: pointer;
+  }
+  .module-num {
+    font-family: 'Fraunces', serif;
+    font-size: 1.8rem; font-weight: 700;
+    color: rgba(255,255,255,.1);
+    min-width: 2.5rem; line-height: 1;
+  }
+  .module-title-wrap { flex: 1; }
+  .module-title {
+    font-size: 1rem; font-weight: 600; color: var(--cream);
+  }
+  .module-subtitle { font-size: .82rem; color: #7090a8; margin-top: .15rem; }
+  .module-toggle {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(255,255,255,.07);
+    display: flex; align-items: center; justify-content: center;
+    color: #7090a8; font-size: .8rem;
+    transition: transform .3s, background .2s;
+  }
+  .module.open .module-toggle { transform: rotate(45deg); background: var(--accent); color: white; }
+
+  .module-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height .4s ease, padding .3s;
+    padding: 0 1.8rem;
+  }
+  .module.open .module-body { max-height: 400px; padding-bottom: 1.8rem; }
+  .module-body p { font-size: .9rem; color: #a0b8cc; line-height: 1.7; margin-bottom: 1rem; }
+  .module-outcome {
+    background: rgba(212,80,10,.12);
+    border-left: 3px solid var(--accent);
+    padding: .7rem 1rem;
+    font-size: .85rem; color: #f0c8a8;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1rem;
+  }
+  .module-outcome strong { display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: .25rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .tag {
+    background: rgba(26,86,219,.2); border: 1px solid rgba(26,86,219,.3);
+    color: #8ab4f8; font-size: .72rem; font-weight: 600;
+    letter-spacing: .04em;
+    padding: .2rem .6rem; border-radius: 999px;
+  }
+
+  .not-covered {
+    margin-top: 3rem;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 10px; padding: 1.8rem;
+  }
+  .not-covered h3 {
+    font-family: 'Fraunces', serif; font-size: 1.1rem;
+    color: #7090a8; margin-bottom: .6rem;
+  }
+  .not-covered p { font-size: .9rem; color: #7090a8; line-height: 1.65; }
+  .not-covered span { color: #a0b8cc; }
+
+  /* ── FORMATS ── */
+  #formats { background: var(--cream2); }
+  .formats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+  .format-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 12px; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: box-shadow .2s;
+  }
+  .format-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.09); }
+  .format-card.featured { border-color: var(--accent); }
+  .featured-badge {
+    position: absolute; top: 1.2rem; right: 1.2rem;
+    background: var(--accent); color: white;
+    font-size: .7rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; padding: .25rem .7rem; border-radius: 999px;
+  }
+  .format-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem; font-weight: 600;
+    margin-bottom: .5rem;
+  }
+  .format-card .price {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem; font-weight: 700;
+    color: var(--ink); margin-bottom: .25rem;
+  }
+  .price-note { font-size: .8rem; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .format-card p { font-size: .9rem; color: var(--ink-soft); line-height: 1.65; margin-bottom: 1.2rem; }
+  .feature-list { list-style: none; display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.5rem; }
+  .feature-list li {
+    font-size: .88rem; color: var(--ink-mid);
+    display: flex; align-items: flex-start; gap: .5rem;
+  }
+  .feature-list li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; }
+  .btn-dark {
+    display: inline-block;
+    background: var(--ink); color: var(--cream);
+    padding: .75rem 1.5rem; border-radius: var(--r);
+    font-weight: 600; font-size: .9rem;
+    text-decoration: none; transition: background .2s;
+  }
+  .btn-dark:hover { background: #1e2d3d; }
+  .btn-outline {
+    display: inline-block;
+    border: 1.5px solid var(--ink); color: var(--ink);
+    padding: .75rem 1.5rem; border-radius: var(--r);
+    font-weight: 600; font-size: .9rem;
+    text-decoration: none; transition: all .2s;
+  }
+  .btn-outline:hover { background: var(--ink); color: var(--cream); }
+
+  /* ── TRUST / SOCIAL PROOF ── */
+  #trust { background: var(--white); }
+  .trust-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+
+  /* Testimonial */
+  .testimonial-label {
+    font-size: .72rem; font-weight: 700;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-soft); margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: .5rem;
+  }
+  .testimonial-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .testimonial-placeholder {
+    background: var(--cream2); border: 1px dashed var(--border);
+    border-radius: 10px; padding: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .stars { color: var(--gold); font-size: 1rem; margin-bottom: .8rem; }
+  .testimonial-placeholder blockquote {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem; font-style: italic;
+    color: var(--ink-mid); line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+  .testimonial-meta { font-size: .8rem; color: var(--ink-soft); }
+  .testimonial-meta strong { color: var(--ink); font-weight: 600; }
+  .placeholder-note {
+    font-size: .78rem; color: #aaa; text-align: center;
+    font-style: italic; padding: .3rem 0;
+  }
+
+  /* Founder */
+  .founder-card {
+    background: var(--ink);
+    border-radius: 12px; padding: 2rem; color: var(--cream);
+  }
+  .founder-top { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.2rem; }
+  .founder-ava {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--gold));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif; font-size: 1.4rem;
+    color: white; font-weight: 700; flex-shrink: 0;
+  }
+  .founder-info .name {
+    font-size: .95rem; font-weight: 600; color: var(--cream);
+  }
+  .founder-info .role { font-size: .8rem; color: #7090a8; margin-top: .15rem; }
+  .founder-card blockquote {
+    font-size: .9rem; color: #b0c4d4;
+    line-height: 1.7; font-style: italic;
+    border-left: 3px solid var(--accent);
+    padding-left: 1rem; margin-bottom: 1.2rem;
+  }
+  .founder-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .fbadge {
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1);
+    color: #a0b8cc; font-size: .72rem; font-weight: 500;
+    padding: .25rem .7rem; border-radius: 999px;
+  }
+  .taster-strip {
+    margin-top: 1.5rem;
+    background: rgba(212,80,10,.12); border: 1px solid rgba(212,80,10,.25);
+    border-radius: 8px; padding: 1.2rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .taster-strip p { font-size: .88rem; color: #f4a76a; font-weight: 500; }
+  .taster-strip a {
+    background: var(--accent); color: white;
+    padding: .5rem 1.1rem; border-radius: var(--r);
+    font-size: .82rem; font-weight: 600;
+    text-decoration: none; white-space: nowrap;
+  }
+  .taster-strip a:hover { background: #b84208; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--cream2); }
+  .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .faq-item { background: var(--white); padding: 1.6rem; }
+  .faq-item h3 {
+    font-size: .95rem; font-weight: 600;
+    color: var(--ink); margin-bottom: .6rem;
+    line-height: 1.4;
+  }
+  .faq-item p { font-size: .88rem; color: var(--ink-soft); line-height: 1.7; }
+  .faq-item p a { color: var(--accent2); }
+
+  /* ── CONTACT / ENROLL ── */
+  #contact { background: var(--ink); color: var(--cream); }
+  #contact .section-title { color: var(--cream); }
+  #contact .section-lead { color: #7090a8; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 400px; gap: 4rem; align-items: start; }
+
+  .contact-benefits { list-style: none; display: flex; flex-direction: column; gap: .8rem; margin-bottom: 2rem; }
+  .contact-benefits li {
+    font-size: .92rem; color: #a0b8cc;
+    display: flex; align-items: flex-start; gap: .7rem;
+  }
+  .contact-benefits li::before { content: '→'; color: var(--accent); font-weight: 700; }
+
+  form {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px; padding: 2rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .form-group { display: flex; flex-direction: column; gap: .4rem; }
+  label { font-size: .8rem; font-weight: 600; color: #7090a8; letter-spacing: .04em; text-transform: uppercase; }
+  input, select, textarea {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--r); color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .92rem; padding: .7rem .9rem;
+    outline: none; transition: border-color .2s;
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+  select option { background: #1a2535; }
+  textarea { resize: vertical; min-height: 80px; }
+  .form-submit {
+    background: var(--accent); color: white;
+    border: none; cursor: pointer;
+    padding: .85rem 1.5rem; border-radius: var(--r);
+    font-family: 'DM Sans', sans-serif;
+    font-size: .95rem; font-weight: 600;
+    transition: background .2s; text-align: center;
+  }
+  .form-submit:hover { background: #b84208; }
+  .form-privacy { font-size: .72rem; color: #6080a0; text-align: center; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #080e15;
+    padding: 2rem 5vw;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+    border-top: 1px solid rgba(255,255,255,.05);
+  }
+  footer .logo {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem; color: #5a7090; text-decoration: none;
+  }
+  footer .logo span { color: var(--accent); }
+  footer nav { display: flex; gap: 1.5rem; }
+  footer nav a { font-size: .8rem; color: #4a6070; text-decoration: none; }
+  footer nav a:hover { color: #8090a0; }
+  footer .copy { font-size: .75rem; color: #3a5060; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .instructor-card { display: none; }
+    .who-grid, .formats-grid, .trust-cols, .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+    .stat-bar-inner { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Kriyan <span>AI</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#formats">Formats & Pricing</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Enroll →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-eyebrow">JEE & Engineering Students</div>
+      <h1>JEE gets you <em>in.</em><br>AI skills get you hired.</h1>
+      <p class="hero-sub">
+        <strong>40% of engineers from top colleges still struggle to find quality work.</strong>
+        The ones who don't? They can build with AI. This program teaches you both — while you're still studying.
+      </p>
+      <div class="hero-actions">
+        <a href="#curriculum" class="btn-primary">See the full curriculum →</a>
+        <a href="#contact" class="btn-ghost">Talk to us before enrolling</a>
       </div>
-    </header>
+    </div>
 
-    <main>
-      <section class="hero">
-        <div class="container hero__grid">
-          <div class="hero__content">
-            <h1>Don’t just crack JEE. Get ready for the AI world.</h1>
-            <p class="hero__subtitle">
-              Even from top-tier colleges, around 40% of graduates struggle with
-              unemployment or low-value jobs. This program helps you build AI skills
-              <em>while</em> preparing for exams, so you’re ready for the jobs that are
-              actually growing.
-            </p>
-            <div class="hero__actions">
-              <a href="#contact" class="btn btn--primary">Apply for the next cohort</a>
-              <a href="#curriculum" class="btn btn--ghost">View curriculum</a>
-            </div>
-            <div class="hero__meta">
-              <span>📚 Designed for JEE & college students</span>
-              <span>⚡ Learn AI alongside your exam prep</span>
-              <span>🌍 Skills for a fast-changing world</span>
-            </div>
-          </div>
-          <div class="hero__card">
-            <div class="hero-metric">
-              <span class="hero-metric__label">Tracks</span>
-              <span class="hero-metric__value">Developer · Founder · Team</span>
-            </div>
-            <div class="hero-metric">
-              <span class="hero-metric__label">Focus</span>
-              <span class="hero-metric__value">LLMs · Agents · MLOps</span>
-            </div>
-            <div class="hero-metric">
-              <span class="hero-metric__label">Level</span>
-              <span class="hero-metric__value">Beginner–Intermediate</span>
-            </div>
-            <p class="hero__note">
-              We keep cohorts intentionally small so you get direct feedback on your
-              projects, code reviews, and guidance tailored to your goals.
-            </p>
-          </div>
-        </div>
-      </section>
+    <!-- Instructor Card -->
+    <div class="instructor-card">
+      <div class="instructor-avatar">K</div>
+      <blockquote>
+        "The AI hiring wave is not coming. It's here. Companies are rebuilding teams around people who can build with AI — and the engineers who can't are already being passed over. Colleges are still teaching the syllabus from 2018. Every month that gap stays open, another batch of students graduates into a market they weren't prepared for. Kriyan exists because that can't wait another four years to be fixed."
+      </blockquote>
+    </div>
+  </div>
+</section>
 
-      <section id="facts" class="section section--muted">
-        <div class="container">
-          <div class="section__header">
-            <h2>AI by the numbers</h2>
-            <p>Why building AI skills now is one of the best moves you can make.</p>
-          </div>
-          <div class="facts-grid">
-            <div class="fact-card">
-              <span class="fact-card__value">78%</span>
-              <p class="fact-card__label">of organizations used AI in 2024 (up from 55% in 2023). Generative AI adoption more than doubled to <strong>71%</strong>.</p>
-            </div>
-            <div class="fact-card">
-              <span class="fact-card__value">50%+</span>
-              <p class="fact-card__label">of the global AI workforce is in the <strong>United States and India</strong> – huge opportunity for Indian students who skill up early.</p>
-            </div>
-            <div class="fact-card">
-              <span class="fact-card__value">33%</span>
-              <p class="fact-card__label">growth in AI sector jobs in just one year in leading markets. AI talent demand is rising fast.</p>
-            </div>
-            <div class="fact-card">
-              <span class="fact-card__value">$252B+</span>
-              <p class="fact-card__label">corporate AI investment in 2024, with private investment up <strong>44%</strong> year-over-year. The world is betting on AI.</p>
-            </div>
-            <div class="fact-card">
-              <span class="fact-card__value">15–30%</span>
-              <p class="fact-card__label">productivity gains reported by organizations that use AI well. Early AI skills = real impact and better roles.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- STAT BAR -->
+<div class="stat-bar">
+  <div class="stat-bar-inner">
+    <div class="stat-item">
+      <div class="num">78%</div>
+      <div class="label">of orgs use AI in 2024</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">33%</div>
+      <div class="label">AI job growth in one year</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">50%+</div>
+      <div class="label">Global AI workforce: India + US</div>
+    </div>
+    <div class="stat-item">
+      <div class="num">$252B</div>
+      <div class="label">Corporate AI investment 2024</div>
+    </div>
+  </div>
+</div>
 
-      <section id="about" class="section section--muted">
-        <div class="container">
-          <div class="section__header">
-            <h2>Who this AI training is for</h2>
-            <p>
-              If you are preparing for JEE or other competitive exams, this is your
-              roadmap to make sure your skills stay relevant, even after the exam is over.
-            </p>
-          </div>
-          <div class="grid-3">
-            <div class="card">
-              <h3>JEE & engineering aspirants</h3>
-              <p>
-                You’re working hard on Physics, Chemistry, and Maths. Learn how AI is
-                transforming all three – and how to turn your problem-solving skills into
-                real AI projects.
-              </p>
-            </div>
-            <div class="card">
-              <h3>College students (B.Tech / BSc)</h3>
-              <p>
-                Even in top colleges, many graduates struggle to get quality jobs. Build
-                AI skills early so you stand out in internships, placements, and future
-                startups.
-              </p>
-            </div>
-            <div class="card">
-              <h3>Parents who think ahead</h3>
-              <p>
-                Marks are important, but not enough. Help your child understand how the
-                AI-driven world is changing and give them skills that stay valuable beyond
-                any one exam.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+<!-- WHO IT'S FOR -->
+<section id="about">
+  <div class="section-inner">
+    <p class="eyebrow">Who this is for</p>
+    <h2 class="section-title">Built for students who think ahead</h2>
+    <p class="section-lead">If you are preparing for JEE or in your early college years, this is how you make sure your skills stay relevant long after the exam is over.</p>
 
-      <section id="curriculum" class="section">
-        <div class="container">
-          <div class="section__header">
-            <h2>What you will learn</h2>
-            <p>
-              A practical curriculum that connects your existing Maths + Logic foundation
-              to real AI tools, projects, and future career paths.
-            </p>
-          </div>
-          <div class="timeline">
-            <div class="timeline__item">
-              <span class="timeline__badge">01</span>
-              <div class="timeline__content">
-                <h3>Introduction to Python & coding</h3>
-                <p>
-                  Start from scratch: variables, data types, loops, conditionals,
-                  functions, and basic data structures. Learn to read and write code so
-                  you can later build and understand AI projects confidently.
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <span class="timeline__badge">02</span>
-              <div class="timeline__content">
-                <h3>AI foundations & mindset</h3>
-                <p>
-                  What AI really is (beyond the hype), where it is used today, and how
-                  your exam preparation (PCM, coding, aptitude) can become a strong base
-                  for AI careers.
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <span class="timeline__badge">03</span>
-              <div class="timeline__content">
-                <h3>Building with LLMs & tools</h3>
-                <p>
-                  Build simple but real AI projects: chatbots, content generators,
-                  personal assistants for study, etc. Learn to use modern AI tools safely
-                  and responsibly.
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <span class="timeline__badge">04</span>
-              <div class="timeline__content">
-                <h3>Production, evaluation & safety</h3>
-                <p>
-                  Understand how AI systems are evaluated, what can go wrong, and how
-                  companies think about ethics, safety, and responsibility in AI products.
-                </p>
-              </div>
-            </div>
-            <div class="timeline__item">
-              <span class="timeline__badge">05</span>
-              <div class="timeline__content">
-                <h3>Capstone project</h3>
-                <p>
-                  Build and present an AI project that you can talk about in college
-                  interviews, SOPs, and placements – with personal feedback and code
-                  reviews.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="formats" class="section section--muted">
-        <div class="container formats">
-          <div class="section__header">
-            <h2>Training formats</h2>
-            <p>Choose the format that best fits your schedule and goals.</p>
-          </div>
-          <div class="grid-3 grid-3--two-cols">
-            <div class="card card--outline">
-              <h3>Cohort-based program</h3>
-              <p>
-                Weekly live sessions, office hours, and a community of peers. Ideal if you
-                want accountability and a guided path.
-              </p>
-              <ul class="list">
-                <li>6–8 weeks</li>
-                <li>Live online sessions</li>
-                <li>Code reviews & feedback</li>
-              </ul>
-            </div>
-            <div class="card card--outline card--highlight">
-              <h3>1:1 mentoring</h3>
-              <p>
-                Personalized roadmap and hands-on support tailored to your background,
-                pace, and project.
-              </p>
-              <ul class="list">
-                <li>Flexible schedule</li>
-                <li>Private sessions</li>
-                <li>Project-focused guidance</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="section section--muted">
-        <div class="container">
-          <div class="section__header">
-            <h2>Frequently asked questions</h2>
-          </div>
-          <div class="faq">
-            <details>
-              <summary>Can I do this while preparing for JEE or college exams?</summary>
-              <p>
-                Yes. The program is designed with students in mind. Sessions and projects
-                are structured so that you can learn AI concepts in small, focused blocks
-                without disturbing your main exam preparation.
-              </p>
-            </details>
-            <details>
-              <summary>Why talk about unemployment from top colleges?</summary>
-              <p>
-                Today, even in top-tier colleges, a large percentage of graduates do not
-                get good roles immediately. Marks and degrees alone are no longer enough.
-                AI skills help you stand out in internships, research, and future jobs.
-              </p>
-            </details>
-            <details>
-              <summary>Do I need prior coding or AI experience?</summary>
-              <p>
-                Basic comfort with school-level Maths and logical thinking is enough. We
-                will introduce coding and AI concepts step by step, with examples related
-                to your existing subjects and interests.
-              </p>
-            </details>
-            <details>
-              <summary>How fast is the world changing with AI?</summary>
-              <p>
-                New tools and models are coming every few months. Instead of chasing every
-                new trend, we focus on core concepts and mindsets that stay useful even as
-                technology changes, so you can keep adapting throughout your career.
-              </p>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section section--accent">
-        <div class="container contact">
-          <div class="contact__content">
-            <h2>Tell us about your exam + AI journey</h2>
-            <p>
-              Share a few details and we’ll suggest the right path to learn AI alongside
-              JEE or college prep, without burning out.
-            </p>
-            <ul class="list list--light">
-              <li>How AI training can fit your current schedule</li>
-              <li>Whether you (or your child) are ready for this program</li>
-              <li>Upcoming batches and formats for students and parents</li>
-            </ul>
-          </div>
-          <form id="contact-form" class="contact__form" action="https://formspree.io/f/mpqjyzvg" method="post">
-            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-            <div class="field">
-              <label for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Your full name"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-              />
-            </div>
-            <div class="field">
-              <label for="phone">Phone</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Your phone number"
-              />
-            </div>
-            <div class="field">
-              <label for="role">You are a...</label>
-              <select id="role" name="role">
-                <option value="">Select an option</option>
-                <option value="jee_student">JEE / competitive exam student</option>
-                <option value="college_student">College student (B.Tech / BSc / others)</option>
-                <option value="parent">Parent</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">What do you want to learn or build?</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                placeholder="Tell us a bit about your background and goals..."
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn--primary btn--full" id="form-submit-btn">
-              Submit interest
-            </button>
-            <p class="contact__note">
-              No spam. We’ll only use your details to contact you about this training.
-            </p>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div class="container footer__inner">
-        <span>&copy; <span id="year"></span> Kriyan AI. All rights reserved.</span>
-        <span class="footer__links">
-          <a href="#about">About</a>
-          <a href="#contact">Contact</a>
-        </span>
+    <div class="who-grid reveal">
+      <div class="who-card">
+        <div class="who-icon">📐</div>
+        <h3>JEE & Engineering Aspirants</h3>
+        <p>You're drilling PCM every day. We show you how that same logical rigour applies directly to building AI — and how to turn exam prep into a career advantage.</p>
       </div>
-    </footer>
+      <div class="who-card">
+        <div class="who-icon">🎓</div>
+        <h3>College Students (B.Tech / BSc)</h3>
+        <p>Even in top colleges, many graduates struggle to land quality roles. Build real AI projects now — the kind you can demo in interviews and internship applications.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🏠</div>
+        <h3>Parents Who Think Ahead</h3>
+        <p>Marks are important — but not enough. Help your child gain skills that are growing in value every year, without disrupting their exam preparation.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script>
-      // Set current year in footer
-      const yearEl = document.getElementById("year");
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear().toString();
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="section-inner">
+    <p class="eyebrow">What you will learn</p>
+    <h2 class="section-title" style="color:var(--cream)">A curriculum built for builders</h2>
+    <p class="section-lead">Each module has a clear outcome and a project you ship. Click any module to see what's inside.</p>
+
+    <div class="module-list reveal">
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">01</div>
+          <div class="module-title-wrap">
+            <div class="module-title">Python for AI Builders</div>
+            <div class="module-subtitle">Variables, functions, APIs, file handling — the foundation</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body">
+          <p>You'll go from zero to writing real Python scripts — loops, functions, APIs, and file handling. By the end, you can read any open-source AI repository and understand what it's doing.</p>
+          <div class="module-outcome">
+            <strong>You'll build</strong>
+            A script that fetches live data and processes it with basic logic — your first working program.
+          </div>
+          <div class="tags">
+            <span class="tag">Python 3</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">GitHub Basics</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">02</div>
+          <div class="module-title-wrap">
+            <div class="module-title">How AI Actually Works</div>
+            <div class="module-subtitle">Tokens, embeddings, transformers — no hype, just clarity</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body">
+          <p>Strip away the hype. Understand how LLMs like GPT and Gemini process language — tokens, embeddings, attention mechanisms. Your PCM foundation is a real advantage here; the maths of AI is closer to JEE than most people realise.</p>
+          <div class="module-outcome">
+            <strong>You'll build</strong>
+            A visual explainer project that shows how a model "sees" a sentence — great for your portfolio.
+          </div>
+          <div class="tags">
+            <span class="tag">Transformers (conceptual)</span>
+            <span class="tag">Embeddings</span>
+            <span class="tag">Tokenisation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">03</div>
+          <div class="module-title-wrap">
+            <div class="module-title">Building with LLMs & the OpenAI / Gemini API</div>
+            <div class="module-subtitle">Prompts that work · Chains · Real products</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body">
+          <p>Move from theory to product. Connect to real AI APIs, write prompts that actually work, and chain steps together to build things people can use — a study assistant, a code explainer, a document summariser.</p>
+          <div class="module-outcome">
+            <strong>You'll build</strong>
+            A working chatbot with memory that answers questions from a document you upload.
+          </div>
+          <div class="tags">
+            <span class="tag">OpenAI API</span>
+            <span class="tag">LangChain Basics</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Streamlit</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">04</div>
+          <div class="module-title-wrap">
+            <div class="module-title">AI That Doesn't Break in the Real World</div>
+            <div class="module-subtitle">Evaluation · Safety · Responsible deployment</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body">
+          <p>What separates a demo from a product is evaluation. Learn how to test AI outputs, handle hallucinations, build fallback logic, and think about what happens when an AI gets something wrong in front of a real user.</p>
+          <div class="module-outcome">
+            <strong>You'll build</strong>
+            An evaluation framework for your own project with at least 3 automated quality checks.
+          </div>
+          <div class="tags">
+            <span class="tag">LLM Evaluation</span>
+            <span class="tag">Error Handling</span>
+            <span class="tag">Responsible AI</span>
+            <span class="tag">Basic MLOps</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="module" onclick="toggleModule(this)">
+        <div class="module-header">
+          <div class="module-num">05</div>
+          <div class="module-title-wrap">
+            <div class="module-title">Capstone: Build Something Real</div>
+            <div class="module-subtitle">Your idea · Full code reviews · Demo-ready project</div>
+          </div>
+          <div class="module-toggle">+</div>
+        </div>
+        <div class="module-body">
+          <p>You propose a problem. We help you scope, build, and present a complete AI project — with code reviews at every step. Past projects have included JEE doubt-solving bots, AI study-plan generators, and smart resume tools.</p>
+          <div class="module-outcome">
+            <strong>You'll walk away with</strong>
+            A GitHub repo, a demo video, and a project you can talk about in any interview or SOP — for real.
+          </div>
+          <div class="tags">
+            <span class="tag">Full Stack AI Project</span>
+            <span class="tag">Code Review</span>
+            <span class="tag">Demo Prep</span>
+            <span class="tag">Portfolio</span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /module-list -->
+
+    <div class="not-covered reveal">
+      <h3>What this is not</h3>
+      <p>This is not a deep ML research course. We won't cover training models from scratch, PyTorch internals, or advanced maths beyond what you need to build. <span>What we will do: get you building real AI projects, fast — and give you the foundation to go deeper on your own.</span></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORMATS & PRICING -->
+<section id="formats">
+  <div class="section-inner">
+    <p class="eyebrow">Formats & Pricing</p>
+    <h2 class="section-title">Choose what fits your life</h2>
+    <p class="section-lead">One-time fee. No subscriptions. No hidden tiers. Everything is included from day one.</p>
+
+    <div class="formats-grid reveal">
+      <div class="format-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <h3>Cohort Program</h3>
+        <div class="price">₹6,999</div>
+        <div class="price-note">One-time · No EMI required · No hidden fees</div>
+        <p>Weekly live sessions with peers, office hours, and a structured 6–8 week path. Ideal if you want accountability, feedback, and a community of students at the same stage as you.</p>
+        <ul class="feature-list">
+          <li>6–8 weeks of live online sessions</li>
+          <li>All session recordings — watch any time</li>
+          <li>Personal code reviews on your capstone</li>
+          <li>Community access with your cohort peers</li>
+          <li>Certificate of completion</li>
+          <li>Office hours every week</li>
+        </ul>
+        <a href="#contact" class="btn-dark">Apply for next cohort →</a>
+      </div>
+
+      <div class="format-card">
+        <h3>1-on-1 Mentoring</h3>
+        <div class="price">₹15,999</div>
+        <div class="price-note">One-time · Flexible scheduling</div>
+        <p>For students who need a personalised roadmap — your pace, your projects, your questions. Sessions fit around your exam schedule.</p>
+        <ul class="feature-list">
+          <li>Private sessions — 100% tailored to you</li>
+          <li>Flexible scheduling around exams</li>
+          <li>Deep-dive code reviews every session</li>
+          <li>Direct access to instructor via chat</li>
+          <li>Certificate of completion</li>
+        </ul>
+        <a href="#contact" class="btn-outline">Talk to us first →</a>
+      </div>
+    </div>
+
+    <div class="taster-strip reveal">
+      <p>🎯 Not sure which format is right? Join a free 60-minute intro session first — no commitment, no pressure.</p>
+      <a href="#contact">Reserve a free seat →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST -->
+<!-- <section id="trust">
+  <div class="section-inner">
+    <div class="trust-cols">
+      <div>
+        <p class="eyebrow">From our students</p>
+        <h2 class="section-title">What builders say</h2>
+        <p class="section-lead">We're collecting testimonials from our early cohort. Here's what the format will look like — real words from real students, not marketing copy.</p>
+
+        <div class="testimonial-label">Student voices</div>
+
+        <div class="testimonial-placeholder">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Before Kriyan, I knew how to solve differential equations but had no idea how to write a Python script. By week 3 I'd built a chatbot that answers doubts from my own notes. That felt surreal."</blockquote>
+          <div class="testimonial-meta">
+            <strong>[Student Name]</strong> · JEE 2025 Aspirant · [City]
+          </div>
+        </div>
+
+        <div class="testimonial-placeholder">
+          <div class="stars">★★★★★</div>
+          <blockquote>"I was worried this would eat into my study time. It didn't — it actually helped me think more clearly about problems in Physics too. The way the instructor breaks down LLMs using analogies from maths was the best part."</blockquote>
+          <div class="testimonial-meta">
+            <strong>[Student Name]</strong> · B.Tech Year 2 · [College]
+          </div>
+        </div>
+
+        <p class="placeholder-note">✦ Testimonials from our first cohort — coming soon</p>
+      </div>
+
+      <div>
+        <div class="founder-card">
+          <div class="founder-top">
+            <div class="founder-ava">K</div>
+            <div class="founder-info">
+              <div class="name">[Founder Name]</div>
+              <div class="role">Founder & Instructor · Kriyan AI</div>
+            </div>
+          </div>
+          <blockquote>
+            "The window to get ahead of this is narrow. In two years, AI skills will be the baseline — not the differentiator. The students who start now are the ones who will have the portfolio, the confidence, and the head start that no exam result can give you."
+          </blockquote>
+
+          <div class="taster-strip" style="margin-top: 1.2rem;">
+            <a href="#contact">Book a seat</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <p class="eyebrow">Questions</p>
+    <h2 class="section-title">The things people actually ask</h2>
+    <br>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <h3>What if I fall behind during exam season?</h3>
+        <p>All live sessions are recorded and available immediately. If a week gets tough, skip the live, watch the replay, and bring your questions to the next office hours session. We've specifically designed for this scenario.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What's your refund policy?</h3>
+        <p>If you complete the first two modules and feel the program isn't right for you, we offer a partial refund — no awkward conversations. We'd rather you make the right decision. <a href="#contact">Email us for details →</a></p>
+      </div>
+      <div class="faq-item">
+        <h3>I'm a parent — how much time will this actually take?</h3>
+        <p>On average, 3–4 hours per week: one live session (~90 min) and project work (~2 hours). Sessions are scheduled on weekends and evenings, specifically around how JEE students actually spend their time.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Will this help with college placements?</h3>
+        <p>Directly. The capstone project gives you something concrete on your resume and a story to tell in interviews. Companies hiring for software and AI roles actively look for students who've built something — not just cleared exams.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do I need prior coding or AI experience?</h3>
+        <p>No. Basic comfort with school-level Maths and logical thinking is enough. We introduce Python and AI concepts step by step, using examples directly connected to your existing subjects.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Why does this program exist when IITs teach CS anyway?</h3>
+        <p>IIT CS teaches you to think like a computer scientist. This program teaches you to build like an AI practitioner. They're different skills, and in 2025, most companies need both. We fill the gap your college doesn't.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLL -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <p class="eyebrow">Get started</p>
+        <h2 class="section-title" style="color:var(--cream)">Tell us where you are.<br>We'll suggest where to go.</h2>
+        <p class="section-lead">Share a few details and we'll suggest the right format, the right cohort timing, and answer any questions before you commit to anything.</p>
+        <ul class="contact-benefits">
+          <li>How this fits your current study schedule</li>
+          <li>Whether the cohort or 1-on-1 format is right for you</li>
+          <li>Upcoming batch dates and what's included</li>
+          <li>Or just — any question you have, answered by a human</li>
+        </ul>
+      </div>
+
+      <form action="https://formspree.io/f/mpqjyzvg" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Your name</label>
+          <input type="text" name="name" placeholder="Arjun Sharma" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="arjun@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Phone (optional)</label>
+          <input type="tel" name="phone" placeholder="+91 98765 43210">
+        </div>
+        <div class="form-group">
+          <label>You are a...</label>
+          <select name="role" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>JEE / competitive exam student</option>
+            <option>College student (B.Tech / BSc / other)</option>
+            <option>Parent</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>What do you want to learn or build?</label>
+          <textarea name="message" placeholder="Tell us a bit about your goals or what you're curious about..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit interest →</button>
+        <p class="form-privacy">No spam. We'll only contact you about this program.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">Kriyan <span>AI</span></a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <span class="copy">© Kriyan AI. All rights reserved.</span>
+</footer>
+
+<script>
+  // Module accordion
+  function toggleModule(el) {
+    const isOpen = el.classList.contains('open');
+    document.querySelectorAll('.module').forEach(m => m.classList.remove('open'));
+    if (!isOpen) el.classList.add('open');
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Form — submit to Formspree, then show success
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('.form-submit');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+      if (res.ok) {
+        btn.textContent = '✓ Received — we\'ll be in touch soon';
+        btn.style.background = '#1a7a3a';
+        form.reset();
+      } else {
+        const data = await res.json().catch(() => ({}));
+        btn.textContent = data.error || 'Something went wrong — try again';
+        btn.disabled = false;
       }
+    } catch (err) {
+      btn.textContent = 'Something went wrong — try again';
+      btn.disabled = false;
+    }
+  }
 
-      // Form submission (works with Formspree: replace YOUR_FORM_ID in form action with your form ID from formspree.io)
-      const form = document.getElementById("contact-form");
-      const statusEl = document.getElementById("form-status");
-      const submitBtn = document.getElementById("form-submit-btn");
+  // Auto-open first module
+  document.querySelector('.module').classList.add('open');
+</script>
 
-      if (form && statusEl && submitBtn) {
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
-          const action = form.getAttribute("action");
-          if (!action || action.includes("FORM_ID")) {
-            statusEl.textContent = "Please set your Formspree form ID in the form action (see code comments).";
-            statusEl.className = "form-status form-status--error";
-            return;
-          }
-          submitBtn.disabled = true;
-          submitBtn.textContent = "Sending…";
-          statusEl.textContent = "";
-          statusEl.className = "form-status";
-
-          try {
-            const formData = new FormData(form);
-            const res = await fetch(action, {
-              method: "POST",
-              body: formData,
-              headers: { Accept: "application/json" },
-            });
-            const data = await res.json().catch(() => ({}));
-            if (res.ok) {
-              statusEl.textContent = "Thanks! We’ll be in touch soon.";
-              statusEl.className = "form-status form-status--success";
-              form.reset();
-            } else {
-              statusEl.textContent = data.error || "Something went wrong. Please try again.";
-              statusEl.className = "form-status form-status--error";
-            }
-          } catch (err) {
-            statusEl.textContent = "Network error. Please check your connection and try again.";
-            statusEl.className = "form-status form-status--error";
-          }
-          submitBtn.disabled = false;
-          submitBtn.textContent = "Submit interest";
-        });
-      }
-    </script>
-  </body>
+</body>
 </html>
-
